@@ -13,11 +13,8 @@ function readFile(fileName) {
     process.stdout.write(`Start read file "${fileName}"\n`);
   });
 
-  stream.on('readable', () => {
-    let data;
-    while ((data === stream.read()) != null) {
-      process.stdout.write(data);
-    }
+  stream.on('data', (data) => {
+    process.stdout.write(data);
   });
 
   stream.on('end', () => {
