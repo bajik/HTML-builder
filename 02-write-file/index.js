@@ -18,13 +18,12 @@ readlineInterface.on('line', (inputText) => {
     writeStream.end();
     process.exit();
   } else {
-    writeStream.write(inputText + '\n');
+    writeStream.write(`${inputText}\n`);
   }
 });
-
 
 readlineInterface.on('SIGINT', () => {
   output.write('\nEnd program');
   writeStream.end();
   process.exit();
-})
+});
